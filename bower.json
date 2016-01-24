@@ -1,0 +1,38 @@
+{
+    "name": "testapp1",
+    "description": "",
+    "main": "app.js",
+    "authors": [
+    "snuffykl <adri4n7@gmail.com>"
+  ],
+    "license": "ISC",
+    "homepage": "https://github.com/sekssoglasny/Ads-Server",
+    "moduleType": [],
+    "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+        "bootstrap": "~3.3.6",
+        "font-awesome": "~4.5.0"
+    },
+    "overrides": {
+        "bootstrap": {
+            "main": [
+                "less/bootstrap.less",
+                "dist/css/bootstrap.min.css",
+                "dist/js/bootstrap.js"
+            ]
+        },
+        "font-awesome": {
+            "main": [
+                "less/font-awesome.less",
+                "scss/font-awesome.scss",
+                "css/font-awesome.min.css"
+            ]
+        }
+    }
+}

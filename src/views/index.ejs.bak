@@ -1,0 +1,16 @@
+<html>
+
+<head>
+    <title>My App</title>
+</head>
+
+<body>
+    <h1><%=title%> in EJS</h1>
+    <ul>
+        <% for(var i=0;i<serverList.length;i++) {%>
+           <li><%=serverList[i]%></li> 
+        <% } %>
+    </ul>
+</body>
+
+</html>
