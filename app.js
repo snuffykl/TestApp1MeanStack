@@ -1,6 +1,10 @@
 'use strict';
 
 var express = require('express');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
+var session = require('express-session');
 
 var app = express();
 
@@ -19,13 +23,26 @@ var nav = [
 
 var bookRouters = require('./src/routes/bookRoutes')(nav);
 var adminRouters = require('./src/routes/adminRoutes')(nav);
+var authRouters = require('./src/routes/authRoutes')(nav);
 
+//Middleware app.use(..)
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(cookieParser());
+app.use(session({secret: 'testApp1'}));
+
+//SOC to do passport initialize/session/etc
+require('./src/config/passport')(app);
+
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/Books', bookRouters);
 app.use('/Admin', adminRouters);
+app.use('/Auth', authRouters);
 
 app.get('/', function (req, res) {
     res.render('index', {
