@@ -6,7 +6,8 @@ var mongodb = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 
 var router = function (nav) {
-    var bookController = require('../controller/bookController')(null,nav);
+    var bookService = require('../services/goodreadsService')();
+    var bookController = require('../controller/bookController')(bookService, nav);
 
     //Validate if user exist if not redirect to login again.
     bookRouter.use(bookController.middleware);
