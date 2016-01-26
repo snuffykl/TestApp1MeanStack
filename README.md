@@ -1,1 +1,2 @@
-# TestApp1MeanStack
+# WebAppLibrary 
+# Using Express/Passport/EJS/etc
